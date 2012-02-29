@@ -4,7 +4,7 @@ require 'net/http/persistent'
 require 'rexml/document'
 include REXML
 
-@@data = [{"latitude":48.858391,"longitude":2.341461, "content":"At 8PM : How's it going!","cityname":"Paris"},{"latitude":45.757942,"longitude":4.822998, "content":"At 9PM : Yo!","cityname":"Lyon"}]
+@@data = [{"latitude" => 48.858391,"longitude" => 2.341461, "receptiontime" => "21:00:18", "content" => "How's it going!","cityname" => "Paris"},{"latitude" => 45.757942,"longitude" => 4.822998, "content" => "Yo!","cityname" => "Lyon", "receptiontime" => "23:42:00"}]
 @@count = 0
 
 get '/' do
