@@ -31,7 +31,11 @@
         margin: 10px auto;
         
       }
-
+	#chatterbox {
+	height: 200px;
+	position: relative;
+	float: bottom;
+	}
       
       input.submissions {
       display: inline;
@@ -121,7 +125,8 @@
         <input name= 'newMessageString' type="text" class="submissions live"/>
         <input type="submit" value='send' class="submissions"/>
       </form>
-    </div>    
+    </div>   
+    <img id="chatterbox"/>
   </body>
   <script src="application.js"></script>
 </html>

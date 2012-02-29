@@ -28,6 +28,7 @@ var MessageView = Backbone.View.extend({
     var data = messages.map(function(message) { return message.get('content') + '\n(' + message.get('cityname')+ ')\n' });
     var result = data.reduce(function(memo,str) { return memo + str }, '');
     $("#chatHistory").text(result);
+    $("#chatterbox").attr("src"="http://maps.googleapis.com/maps/api/staticmap?path=color:0x0000ff%7Cweight:5%7C40.737102,-73.990318%7C40.749825,-73.987963%7C40.752946,-73.987384%7C40.755823,-73.986397&size=512x512&sensor=false");
     return this;
   }
 
