@@ -129,7 +129,7 @@ border-radius: 8px 8px 8px 8px;
         overflow: hide;
         padding: 0px;
       }
-      textarea {
+      #chatHistory {
       left: 0px;
       width: 400px;
       margin: 0px;
@@ -137,6 +137,10 @@ border-radius: 8px 8px 8px 8px;
       margin: 0px;
       padding: 0px;
       }
+      #chatHistory a {
+      padding: 1px 2px;
+      }
+      
       input[type=submit]{
       opacity: 0;
       margin: 0px;
