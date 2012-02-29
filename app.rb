@@ -22,7 +22,7 @@ post '/messages' do
   
   @locationIP = request.ip
   jsonresponse = JSON.parse(Net::HTTP.get_response(URI.parse("http://api.ipinfodb.com/v3/ip-city/?key=fcf5c6d5f16bd594c40883ac6161f788ac985f3d674ffee79667dbeac5a087c8&ip="+@locationIP+"&format=json")).body)
-  message = JSON.parse(request.body.read.to_s).merge(:id => @@count +=1, :receptiontime => time.strftime("%H:%M:%S"), :user_ip => request.ip, :cityname => (jsonresponse['cityName']).capitalize!, :countryname => (jsonresponse['countryName']).capitalize!, :latitude => jsonresponse['latitude'], :longitude => jsonresponse['longitude'])
+  message = JSON.parse(request.body.read.to_s).merge(:id => @@count +=1, :receptiontime => time.strftime("%H:%M:%S"), :user_ip => request.ip, :cityname => (jsonresponse['cityName']).capitalize!, :countryname => (jsonresponse['countryName']).split(" ").each{|word| word.capitalize!}.join(" "), :latitude => jsonresponse['latitude'], :longitude => jsonresponse['longitude'])
   @@data << message
   message.to_json
 end
