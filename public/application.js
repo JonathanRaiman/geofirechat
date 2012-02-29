@@ -47,20 +47,18 @@ var MessageView = Backbone.View.extend({
     		}
     	if (uniquelocation == true)
     		{
-    		rerenderusers = true;
     		userlocations[i] = message.get('latitude')+","+message.get('longitude');
     		i++;
     		}
     	return message.get('receptiontime') + message.get('content') + '</br><a>' + message.get('cityname')+ '</a></br>' 
     	});
     var result = data.reduce(function(memo,str) { return memo + str }, '');
-    if (rerenderusers == true)
-    	{
+    var usersbox = "";
     	for (var h=0; h<userlocations.length; h++)
     		{
-    		$("#usersbox").append("<img src='http://maps.googleapis.com/maps/api/staticmap?center="+userlocations[h]+"&zoom=2&format=png&sensor=false&size=300x100&maptype=roadmap&style=feature:road%7Csaturation:-99%7Clightness:-49&style=feature:water%7Csaturation:-27%7Clightness:-56&style=feature:transit.station%7Cvisibility:off&style=element:labels%7Cvisibility:off%7Cinvert_lightness:true%7Cgamma=0.32&style=element:feature:landscape.man_made%7Csaturation:-85%7Chue:0x00ffa2%7Clightness:56%7Cvisibility:off&style=feature:landscape%7Chue:0xf6ff00%7Csaturation:-99%7Cgamma:9.99&style=feature:poi.park%7Csaturation:45%7Clightness:-19%7Cgamma:0.99%7Chue:0x88ff00&style=feature:road.local%7Cgamma:0.99%7Chue:0x3bff00%7Csaturation:-55%7Clightness:-23' />");
+    		usersbox= usersbox+"<img src='http://maps.googleapis.com/maps/api/staticmap?center="+userlocations[h]+"&zoom=2&format=png&sensor=false&size=300x100&maptype=roadmap&style=feature:road%7Csaturation:-99%7Clightness:-49&style=feature:water%7Csaturation:-27%7Clightness:-56&style=feature:transit.station%7Cvisibility:off&style=element:labels%7Cvisibility:off%7Cinvert_lightness:true%7Cgamma=0.32&style=element:feature:landscape.man_made%7Csaturation:-85%7Chue:0x00ffa2%7Clightness:56%7Cvisibility:off&style=feature:landscape%7Chue:0xf6ff00%7Csaturation:-99%7Cgamma:9.99&style=feature:poi.park%7Csaturation:45%7Clightness:-19%7Cgamma:0.99%7Chue:0x88ff00&style=feature:road.local%7Cgamma:0.99%7Chue:0x3bff00%7Csaturation:-55%7Clightness:-23' />";
     		}
-    	}
+    $("#usersbox").html(usersbox);
     $("#chatHistory").html(result);
     return this;
   }
