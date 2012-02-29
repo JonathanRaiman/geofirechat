@@ -6,6 +6,8 @@ var MessageStore = Backbone.Collection.extend({
 });
 var messages = new MessageStore;
 
+var userlocations = [];
+
 var MessageView = Backbone.View.extend({
 
    events: { "submit #chatForm" : "handleNewMessage" }
@@ -25,10 +27,35 @@ var MessageView = Backbone.View.extend({
   }
 
   , render: function() {
-    var data = messages.map(function(message) { return message.get('content') + '\n(' + message.get('cityname')+ ')\n' });
+  	var rerenderusers = false;
+  	var i=0;
+    var data = messages.map(function(message) {
+    	//$("#chatterbox").attr('src','http://maps.googleapis.com/maps/api/staticmap?sensor=false&size=200x200&center='+message.get('latitude')+','+message.get('longitude')+'&zoom=12&style=feature:road.local%7Celement:geometry%7Chue:0x00ff00%7Csaturation:100&style=feature:landscape%7Celement:geometry%7Clightness:-100');
+    	for (var l=0; l< userlocations.length; l++)
+    		{
+    		var uniquelocation = true;
+    		if (userlocations[l] == (message.get('latitude')+","+message.get('longitude')))
+    			{
+    			uniquelocation = false;
+    			}
+    		}
+    	if (uniquelocation == true)
+    		{
+    		rerenderusers = true;
+    		userlocations[i] = message.get('latitude')+","+message.get('longitude');
+    		i++;
+    		}
+    	return message.get('content') + '\n(' + message.get('cityname')+ ')\n' 
+    	});
     var result = data.reduce(function(memo,str) { return memo + str }, '');
+    if (rerenderusers == true)
+    	{
+    	for (var h=0; h<userlocations.length; h++)
+    		{
+    		$("#usersbox").append("<img src='http://maps.googleapis.com/maps/api/staticmap?sensor=false&size=200x50&center="+userlocations[h]+"&zoom=12&style=feature:road.local%7Celement:geometry%7Chue:0x00ff00%7Csaturation:100&style=feature:landscape%7Celement:geometry%7Clightness:-100' />");
+    		}
+    	}
     $("#chatHistory").text(result);
-    $("#chatterbox").attr("src"="http://maps.googleapis.com/maps/api/staticmap?path=color:0x0000ff%7Cweight:5%7C40.737102,-73.990318%7C40.749825,-73.987963%7C40.752946,-73.987384%7C40.755823,-73.986397&size=512x512&sensor=false");
     return this;
   }
 

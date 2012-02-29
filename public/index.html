@@ -31,10 +31,19 @@
         margin: 10px auto;
         
       }
-	#chatterbox {
-	height: 200px;
-	position: relative;
-	float: bottom;
+	#usersbox {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 200px;
+	margin-left: 0px;
+	overflow-y: hide;
+	overflow-x: scroll;
+	height: 100%;
+	background: #191A19;
+	-webkit-transition: all 500ms ease-in-out;
+-moz-transition: all 500ms ease-in-out;
+-o-transition: all 500ms ease-in-out;
 	}
       
       input.submissions {
@@ -72,6 +81,11 @@
       
       @media only screen and (max-width: 1023px) {
 	  }
+	  @media handheld, only screen and (max-width: 837px){
+	  #usersbox {
+	  opacity: 0;
+	  }
+	  
 	  @media handheld, only screen and (max-width: 481px){
 	  
 	  body {
@@ -125,8 +139,9 @@
         <input name= 'newMessageString' type="text" class="submissions live"/>
         <input type="submit" value='send' class="submissions"/>
       </form>
-    </div>   
-    <img id="chatterbox"/>
+      <div id="usersbox"></div>
+      </div>   
+    
   </body>
   <script src="application.js"></script>
 </html>
