@@ -14,37 +14,52 @@
     	border: none;
     	color: white;
     	text-shadow: 0 -2px 0 #0F1619;
-    	line-height: 1.5;
+    	line-height: 1.4;
     	overflow-y: scroll;
       }
-      #chatHistory a{
-	background: rgb(169,219,128);
-	background: -moz-linear-gradient(top, rgba(169,219,128,1) 0%, rgba(150,197,111,1) 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(169,219,128,1)), color-stop(100%,rgba(150,197,111,1)));
-	background: -webkit-linear-gradient(top, rgba(169,219,128,1) 0%,rgba(150,197,111,1) 100%);
-	background: -o-linear-gradient(top, rgba(169,219,128,1) 0%,rgba(150,197,111,1) 100%);	
-	background: -ms-linear-gradient(top, rgba(169,219,128,1) 0%,rgba(150,197,111,1) 100%);
-	background: linear-gradient(top, rgba(169,219,128,1) 0%,rgba(150,197,111,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9db80', endColorstr='#96c56f',GradientType=0 );
+      .timeicon{
       font: 10px Lucida Grande, sans-serif;
       display: inline;
       padding: 4px 8px;
-      color: rgb(30,60,10);
-      text-shadow: 0 1px 0 white;
       -moz-border-radius: 8px 8px 8px 8px;
 -webkit-border-radius: 8px 8px 8px 8px;
 -khtml-border-radius:  8px 8px 8px 8px;
 border-radius: 8px 8px 8px 8px;
+      color: rgb(50,50,50);
+      padding: 2px 4px;
+      background: rgb(144,143,140);
+	background: -moz-linear-gradient(top, rgba(144,143,140,1) 0%, rgba(109,109,107,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(144,143,140,1)), color-stop(100%,rgba(109,109,107,1)));
+	background: -webkit-linear-gradient(top, rgba(144,143,140,1) 0%,rgba(109,109,107,1) 100%);
+	background: -o-linear-gradient(top, rgba(144,143,140,1) 0%,rgba(109,109,107,1) 100%);
+	background: -ms-linear-gradient(top, rgba(144,143,140,1) 0%,rgba(109,109,107,1) 100%);
+	background: linear-gradient(top, rgba(144,143,140,1) 0%,rgba(109,109,107,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#908f8c', endColorstr='#6d6d6b',GradientType=0 );
+      text-shadow: 0 1px 0 rgb(150,150,150);
+      margin-right: 10px;
       }
+      #chatHistory a {
+      font: 10px Lucida Grande, sans-serif;
+      color: rgb(200,210,200);
+      cursor: pointer;
+      }
+      
       
       input[type="text"] {
         width: 450px;
-        
       }
       #chatArea {
         width:600px;
         margin: 10px auto;
         
+      }
+      
+      #chatArea img.pin{
+      height: 17px;
+      vertical-align: middle;
+      margin-left: 4px;
+      margin-right: 4px;
+      cursor: pointer;
       }
 	#usersbox {
 	position: fixed;
@@ -60,6 +75,7 @@ border-radius: 8px 8px 8px 8px;
 	-moz-transition: all 500ms ease-in-out;
 	-o-transition: all 500ms ease-in-out;
 	}
+	
 	
     #usersbox img{
     margin: 0px;
@@ -120,9 +136,10 @@ border-radius: 8px 8px 8px 8px;
 	  margin: 0px;
 	  }
 	  #chatArea {
+	  position: fixed;
 	  	top: 0px;
 	  	left: 0px;
-        width:400px ;
+        width:100% ;
         margin: 0px;
         height:125px;
         margin: 0px;
@@ -130,8 +147,9 @@ border-radius: 8px 8px 8px 8px;
         padding: 0px;
       }
       #chatHistory {
+      position: fixed;
       left: 0px;
-      width: 400px;
+      width: 100%;
       margin: 0px;
       height:125px;
       margin: 0px;
@@ -139,7 +157,7 @@ border-radius: 8px 8px 8px 8px;
       }
       #chatHistory a {
       padding: 2px 3px;
-            -moz-border-radius: 3px 3px 3px 3px;
+        -moz-border-radius: 3px 3px 3px 3px;
 -webkit-border-radius: 3px 3px 3px 3px;
 -khtml-border-radius:  3px 3px 3px 3px;
 border-radius: 3px 3px 3px 3px;
@@ -151,8 +169,11 @@ border-radius: 3px 3px 3px 3px;
       display: none;
       }
       input[type=text]{
-      width: 400px !important ;
+      position: fixed;
+      width: 100%;
+      top: 125px;
       margin: 0px;
       padding: 0px;
+	  z-index: 2000;
       }
       /*}
