@@ -42,7 +42,7 @@ def relative_time(start_time)
   diff_seconds = Time.now.to_i - start_time.to_i
   case diff_seconds
     when 0 .. 59
-       "Moments ago"
+       "Just now"
     when 60 .. (3600-1)
        "#{diff_seconds/60} "+pluralize((diff_seconds/60), 'minute')+" ago"
     when 3600 .. (3600*24-1)

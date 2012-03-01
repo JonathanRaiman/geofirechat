@@ -55,11 +55,13 @@ border-radius: 8px 8px 8px 8px;
       }
       
       #chatArea span.pin{
-      background: url(location_pin.png);
+      background: url(location_pin.png) no-repeat;
       width: 10px;
-      display: inline;
+      display:inline-block;
+      background-size:contain;
       height: 17px;
       vertical-align: middle;
+      
       margin-left: 4px;
       margin-right: 4px;
       cursor: pointer;

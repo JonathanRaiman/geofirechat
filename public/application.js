@@ -43,7 +43,7 @@ var MessageView = Backbone.View.extend({
     		userlocations[i] = message.get('latitude')+","+message.get('longitude');
     		i++;
     		}
-    	return message.get('content') + '</br><span class="timeicon">'+message.get('displayedtime')+'</span><span class="pin" ></span><a>' + message.get('cityname')+', '+message.get('countryname') +'</a></br>' 
+    	return message.get('content') + '</br><span class="timeicon">'+message.get('displayedtime')+'</span><span class="pin" >&nbsp;</span><a>' + message.get('cityname')+', '+message.get('countryname') +'</a></br>' 
     	});
     var result = data.reduce(function(memo,str) { return memo + str }, '');
     var usersbox = "";
