@@ -17,6 +17,12 @@
     	line-height: 1.4;
     	overflow-y: scroll;
       }
+      
+      ::selection,::-moz-selection {
+  color: #fff;
+  color: rgba(255, 255, 255, 0.85);
+  background: #ea4c89;
+}
       /*.timeicon{
       font: 10px Lucida Grande, sans-serif;
       display: inline;
