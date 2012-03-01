@@ -3,8 +3,7 @@ require 'json'
 require 'net/http/persistent'
 require 'rubygems'
 require 'rexml/document'
-require 'active_support'
-require 'active_support/inflector'
+require 'linguistics'
 include REXML
 
 @@data = []
@@ -34,7 +33,7 @@ post '/messages' do
 end
 
 def pluralize(number, text)
-  return text.pluralize if number != 1
+  return text.en.plural if number != 1
   text
 end
 
