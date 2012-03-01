@@ -30,6 +30,11 @@ post '/messages' do
   message.to_json
 end
 
+def pluralize(number, text)
+  return text.pluralize if number != 1
+  text
+end
+
 def relative_time(start_time)
   diff_seconds = Time.now.to_i - start_time.to_i
   case diff_seconds
@@ -46,9 +51,4 @@ def relative_time(start_time)
     else
        start_time.strftime("%m/%d/%Y")
   end
-end
-
-def pluralize(number, text)
-  return text.pluralize if number != 1
-  text
 end
