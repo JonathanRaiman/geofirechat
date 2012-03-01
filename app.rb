@@ -2,8 +2,8 @@ require 'sinatra'
 require 'json'
 require 'net/http/persistent'
 require 'rexml/document'
+require 'active_support'
 include REXML
-include ActionView::Helpers::TextHelper
 
 @@data = []
 @@count = 0
