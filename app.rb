@@ -1,8 +1,10 @@
 require 'sinatra'
 require 'json'
 require 'net/http/persistent'
+require 'rubygems'
 require 'rexml/document'
 require 'active_support'
+require 'active_support/inflector'
 include REXML
 
 @@data = []
@@ -31,11 +33,16 @@ post '/messages' do
   message.to_json
 end
 
+def pluralize(number, text)
+  return text.pluralize if number != 1
+  text
+end
+
 def relative_time(start_time)
   diff_seconds = Time.now.to_i - start_time.to_i
   case diff_seconds
     when 0 .. 59
-       "Moments ago"+moment.pluralize
+       "Moments ago"
     when 60 .. (3600-1)
        "#{diff_seconds/60} "+pluralize((diff_seconds/60), 'minute')+" ago"
     when 3600 .. (3600*24-1)

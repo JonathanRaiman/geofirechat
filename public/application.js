@@ -2,7 +2,7 @@ var Message = Backbone.Model.extend({});
 
 var MessageStore = Backbone.Collection.extend({
  model: Message,
-   url: 'http://geofirechat.heroku.com/messages'
+   url: 'http://localhost:4567/messages'
 });
 var messages = new MessageStore;
 
