@@ -12,7 +12,7 @@ get '/' do
 end
 
 get '/messages' do
-	@@data.each { |receptiontime, value| receptiontime="5"} 
+	@@data.each { |receptiontime, value| :receptiontime => "5"} 
   content_type :json
   @@data.to_json
 end
