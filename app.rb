@@ -3,6 +3,7 @@ require 'json'
 require 'net/http/persistent'
 require 'rexml/document'
 include REXML
+include ActionView::Helpers::TextHelper
 
 @@data = []
 @@count = 0
@@ -28,11 +29,6 @@ post '/messages' do
   message = JSON.parse(request.body.read.to_s).merge(:id => @@count +=1, :receptiontime => Time.now, :displayed_time => relative_time(Time.now),:user_ip => request.ip, :cityname => (jsonresponse['cityName']).split(" ").each{|word| word.capitalize!}.join(" "), :countryname => (jsonresponse['countryName']).split(" ").each{|word| word.capitalize!}.join(" "), :latitude => jsonresponse['latitude'], :longitude => jsonresponse['longitude'])
   @@data << message
   message.to_json
-end
-
-def pluralize(number, text)
-  return text.pluralize if number != 1
-  text
 end
 
 def relative_time(start_time)
