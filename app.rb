@@ -5,6 +5,7 @@ require 'rubygems'
 require 'rexml/document'
 require 'linguistics'
 include REXML
+Linguistics::use( :en )
 
 @@data = []
 @@count = 0
