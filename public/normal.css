@@ -17,7 +17,7 @@
     	line-height: 1.4;
     	overflow-y: scroll;
       }
-      .timeicon{
+      /*.timeicon{
       font: 10px Lucida Grande, sans-serif;
       display: inline;
       padding: 4px 8px;
@@ -37,8 +37,8 @@ border-radius: 8px 8px 8px 8px;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#908f8c', endColorstr='#6d6d6b',GradientType=0 );
       text-shadow: 0 1px 0 rgb(150,150,150);
       margin-right: 10px;
-      }
-      #chatHistory a {
+      }*/
+      #chatHistory a, .timeicon {
       font: 10px Lucida Grande, sans-serif;
       color: rgb(200,210,200);
       cursor: pointer;

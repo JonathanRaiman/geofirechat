@@ -2,7 +2,7 @@ var Message = Backbone.Model.extend({});
 
 var MessageStore = Backbone.Collection.extend({
  model: Message,
-   url: 'http://localhost:4567/messages'
+   url: 'http://geofirechat.heroku.com/messages'
 });
 var messages = new MessageStore;
 
@@ -43,7 +43,7 @@ var MessageView = Backbone.View.extend({
     		userlocations[i] = message.get('latitude')+","+message.get('longitude');
     		i++;
     		}
-    	return '<span class="timeicon">'+message.get('receptiontime')+'</span>' + message.get('content') + '</br><img class="pin" src="location_pin.png"/><a>' + message.get('cityname')+', '+message.get('countryname') +'</a></br>' 
+    	return message.get('content') + '</br><span class="timeicon">'+message.get('displayedtime')+'</span><img class="pin" src="location_pin.png"/><a>' + message.get('cityname')+', '+message.get('countryname') +'</a></br>' 
     	});
     var result = data.reduce(function(memo,str) { return memo + str }, '');
     var usersbox = "";
