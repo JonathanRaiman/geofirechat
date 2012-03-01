@@ -11,8 +11,9 @@ get '/' do
   File.read(File.join('public', 'index.html'))
 end
 
-get '/messages' do
-	@@data.each { |receptiontime, value| :receptiontime => "5"} 
+get '/messages' do 
+	@@data.each do
+	message["receptiontime"] = "5"
   content_type :json
   @@data.to_json
 end
