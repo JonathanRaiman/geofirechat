@@ -46,7 +46,7 @@ def relative_time(start_time)
     when 60 .. (3600-1)
        "#{diff_seconds/60} "+pluralize((diff_seconds/60), 'minute')+" ago"
     when 3600 .. (3600*24-1)
-       "#{diff_seconds/360} "+pluralize((diff_seconds/360), 'hour')+" ago"
+       "#{diff_seconds/3600} "+pluralize((diff_seconds/3600), 'hour')+" ago"
     when (3600*24) .. (3600*24*7-1) 
        "#{diff_seconds/(3600*24)} "+pluralize((diff_seconds/(3600*24)), 'day')+" ago"
     when (3600*24*7) .. (3600*24*30)
