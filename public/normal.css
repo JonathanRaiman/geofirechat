@@ -23,6 +23,22 @@
   color: rgba(255, 255, 255, 0.85);
   background: #ea4c89;
 }
+
+
+#webmaster {
+margin-top: 50px;
+margin-bottom: 50px;
+display: block;
+text-align: center;
+      font: 14px Lucida Grande, sans-serif;
+      color: rgb(200,210,200);
+      cursor: pointer;
+}
+#webmaster a {
+display: inline-block;
+text-decoration: none;
+color: white;
+}
       /*.timeicon{
       font: 10px Lucida Grande, sans-serif;
       display: inline;
